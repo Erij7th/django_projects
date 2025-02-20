@@ -1,14 +1,12 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Todo List</title>
-</head>
-<body>
-    <h1>Todo List</h1>
-    <ul>
-        {% for item in object_list %}
-            <li><a href="{% url 'item_detail' item.pk %}">{{ item.description }}</a></li>
-        {% endfor %}
-    </ul>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Erij's To Do List</h1>
+<main>
+<ul>
+    {% for item in object_list %}
+    <li><a href="{% url 'item_detail' item.pk %}">{{ item.description }}</a></li>
+    {% endfor %}
+</ul>
+</main}
+{% endblock %}

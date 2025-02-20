@@ -32,6 +32,7 @@ ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'polls.apps.PollsConfig',
+    'todo',
     'viewsbasics.apps.ViewsbasicsConfig',
     'dtl.apps.DtlConfig',
     'django.contrib.admin',
@@ -40,7 +41,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'todo',
 ]
 
 MIDDLEWARE = [
