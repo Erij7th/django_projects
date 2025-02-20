@@ -2,7 +2,8 @@ from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 from django.utils.html import escape
 from random import choice
-
+from django.views import View
+from django.shortcuts import render
 
 def funktionally(request):
     response = """<!DOCTYPE html>
@@ -46,7 +47,25 @@ def funktionally(request):
     """
     return HttpResponse(response)
 
+class icecream(View):
+    def get(self, request ):
+        return render(request, 'viewsbasics/icecream.html')
 
+class BMI(View):
+    def get(self, request, height, weight):   
+        x = {'height': height,
+             'weight':weight, 'result': weight/height}
+        return render(request, 'viewsbasics/bmi.html', x)
+
+class distance(View):
+    def get(self, request, speed, time):
+        speed = int(speed)
+        time = int(time)
+        distance = speed * time
+        x = {'distance': distance,
+             'speed': speed,
+             'time': time}
+        return render(request, 'viewsbasics/distance.html', x )
 def danger(request):
     response = """<!DOCTYPE html>
     <html lang="en">
@@ -189,3 +208,5 @@ def bounce(request):
         'https://www.djangoproject.com/',
     ]
     return HttpResponseRedirect(choice(places))
+
+
